@@ -1,6 +1,6 @@
 # Presenter Component - Mendo Framework
 
-The Mendo Presenter component allows you to decorate your model objects with methods used by your views. A typical example used to demonstrate the use for presenters, is a presenter method formatting a date from the model in a more readable for the users.
+The Mendo Presenter component allows you to decorate your model objects with methods used by your views. A typical example used to demonstrate the use for presenters, is a presenter method formatting a date from the model in a more readable format for the user.
 
 ## Mendo\Presenter\Presenter
 
@@ -36,7 +36,7 @@ $property = new Mendo\Presenter\Presenter($property);
 
 This is simply done by PHP's magic methods ```__get``` and ```__call```.
 
-In order to add behaviour to your model objects for view formatting, you will have to create your own presenter:
+In order to add behavior to your model objects for view formatting, you will have to create your own presenter:
 
 ```php
 class PropertyPresenter extends Mendo\Presenter\Presenter

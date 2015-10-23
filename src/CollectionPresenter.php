@@ -16,16 +16,12 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * @author Mathieu Decaffmeyer <mdecaffmeyer@gmail.com>
  */
-class CollectionPresenter implements \Iterator
+class CollectionPresenter extends Presenter implements \Iterator
 {
-    private $collection;
     private $position = 0;
     private $presenterFactory;
 
-    public function __construct(
-        $collection,
-        PresenterFactoryInterface $presenterFactory
-    ) {
+    public function __construct($collection, PresenterFactoryInterface $presenterFactory) {
         if (is_array($collection)) {
             $this->collection = new ArrayCollection($collection);
         } elseif ($collection instanceof \ArrayAccess) {
@@ -33,6 +29,8 @@ class CollectionPresenter implements \Iterator
         } else {
             throw new \InvalidArgumentException('$collection is expected to be of type array or \ArrayAccess');
         }
+        parent::__construct($collection);
+
         $this->position = 0;
         $this->presenterFactory = $presenterFactory;
     }
@@ -42,7 +40,7 @@ class CollectionPresenter implements \Iterator
     }
 
     public function current() {
-        return $this->presenterFactory->createPresenter($this->collection[$this->position]);
+        return $this->presenterFactory->createPresenter($this->subject[$this->position]);
     }
 
     public function key() {
@@ -54,6 +52,6 @@ class CollectionPresenter implements \Iterator
     }
 
     public function valid() {
-        return isset($this->collection[$this->position]);
+        return isset($this->subject[$this->position]);
     }
 }

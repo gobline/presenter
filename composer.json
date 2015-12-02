@@ -1,6 +1,6 @@
 {
-    "name": "mendoframework/presenter",
-    "description": "Mendo Presenter Component",
+    "name": "gobline/presenter",
+    "description": "Presenter component",
     "license": "BSD-3-Clause",
     "authors": [
         {
@@ -9,13 +9,13 @@
         }
     ],
     "keywords": [
-        "mf", "mendoframework", "mendo framework",
+        "gobline", 
         "presenter"
     ],
-    "homepage": "https://github.com/mendoframework",
+    "homepage": "https://github.com/gobline",
     "autoload": {
         "psr-4": {
-            "Mendo\\Presenter\\": "src/"
+            "Gobline\\Presenter\\": "src/"
         }
     },
     "require": {

@@ -21,7 +21,8 @@ class CollectionPresenter extends Presenter implements \Iterator
     private $position = 0;
     private $presenterFactory;
 
-    public function __construct($collection, PresenterFactoryInterface $presenterFactory) {
+    public function __construct($collection, PresenterFactoryInterface $presenterFactory)
+    {
         if (is_array($collection)) {
             $this->collection = new ArrayCollection($collection);
         } elseif ($collection instanceof \ArrayAccess) {
@@ -35,23 +36,28 @@ class CollectionPresenter extends Presenter implements \Iterator
         $this->presenterFactory = $presenterFactory;
     }
 
-    public function rewind() {
+    public function rewind()
+    {
         $this->position = 0;
     }
 
-    public function current() {
+    public function current()
+    {
         return $this->presenterFactory->createPresenter($this->subject[$this->position]);
     }
 
-    public function key() {
+    public function key()
+    {
         return $this->position;
     }
 
-    public function next() {
+    public function next()
+    {
         ++$this->position;
     }
 
-    public function valid() {
+    public function valid()
+    {
         return isset($this->subject[$this->position]);
     }
 }
